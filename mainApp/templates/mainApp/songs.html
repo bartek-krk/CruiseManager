@@ -1,0 +1,25 @@
+{% extends "mainApp/base.html" %}
+
+{% block header %}
+
+  <div class="jumbotron">
+    <h1>Śpiewnik</h1>
+    <ol>
+      {% for title in titles %}
+        <li><a href="#{{ forloop.counter }}">{{ title }}</a></li>
+      {% endfor %}
+   </ol>
+  </div>
+
+{% endblock header %}
+
+{% block content %}
+
+  {% for item in data %}
+    <div class="panel panel-default">
+      <h2 id={{ forloop.counter }}>{{ item.0 }}</h2>
+      <p>{{ item.1|linebreaks }}</p>
+    </div>
+  {% endfor %}
+
+{% endblock content %}

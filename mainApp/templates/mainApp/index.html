@@ -1,0 +1,57 @@
+{% load bootstrap3 %}
+
+<!DOCTYPE html>
+<html lang="pl">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiq="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Rejs na Mazury</title>
+    
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+  </head>
+
+  <body> 
+
+    <div class="container">
+      <div class="page-header">
+          <div class="jumbotron">
+            <h1>Witaj na stronie rejsu na Mazury</h1>
+          </div>
+      </div>
+      
+    <div>
+      <h2>Sprawdź prognozę pogody w popularnych lokalizacjach lub wpisz współrzędne</h2>
+      <ul>
+        {% for item in data %}
+          <li><a href="{%url 'mainApp:weather' %}?coordinates={{ item.1 }}">{{ item.0 }}</a></li>
+        {% endfor %}
+        <li>
+          <form action="{%url 'mainApp:weather' %}" method="get">
+            <label>Współrzędne:</label>
+            <input type="text" name="coordinates" value="0,0">
+            <input type="submit" value="Wyszukaj prognozę"><br>
+            <label>Używaj stopni miaromiernych.</label>
+          </form>
+        </li>
+      </ul>
+
+       <h2><a href="{%url 'mainApp:songs' %}">Śpiewnik</a></h2>
+       <h2><a href="{% url 'mainApp:map' %}">Mapa rejsu</a></h2>
+
+      </div>
+
+    </div>
+
+    <footer>
+      <div class="footer-copyright text-center py-3">
+        Author: Bartosz Łukasik
+        <a href="https://github.com/bartek-krk/CruiseManager">GitHub</a>
+      </div>
+   </footer>
+
+  </body>
+</html>

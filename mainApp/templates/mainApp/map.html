@@ -1,0 +1,21 @@
+{% extends "mainApp/base.html" %}
+{% include "mainApp/navbar.html" %}
+
+{% block navbar %}{% endblock navbar %}
+
+{% block header %}
+  <div class="jumbotron">
+    <h1>Mapa rejsu</h1>
+  </div>
+{% endblock header %}
+
+{% block content %}
+  <iframe src="https://www.google.com/maps/d/embed?mid=1o4tb5npFkzgpQIWz8E9KCmvAH96DChm8" width=100% height="400"></iframe>
+{% endblock content %}
+
+<footer>
+  <div class="footer-copyright text-center py-3">
+    Author: Bartosz Łukasik
+    <a href="https://github.com/bartek-krk/CruiseManager">GitHub</a>
+  </div>
+</footer>
